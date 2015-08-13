@@ -1,8 +1,6 @@
 #!/bin/bash
 URL="$1"
 EXPECTED_SHA="$2"
-set -x
-
 ACTUAL_SHA="$(curl -L --progress-bar "$URL" | /usr/bin/core_perl/shasum -a 256 | cut -d \  -f 1)"
 if [ "$EXPECTED_SHA" = "$ACTUAL_SHA" ]
 	then
